@@ -7,17 +7,15 @@ public class cuckoo {
     public cuckoo(){}
     static ArrayList<Integer> cuckoo_Stash =  new ArrayList<Integer>();
 
-    long[] setup(int data_size){
+    long[] setup(long[] table,int data_size){
         int ELEMENT_SIZE = (int) Math.pow(2, data_size);
         int DEFAULT_INITIAL_CAPACITY = (int) Math.floor((ELEMENT_SIZE * (1 + 0.3)));
-        long[] table = new long[DEFAULT_INITIAL_CAPACITY*2];
-        for (int i = 1; i <= ELEMENT_SIZE; i++) {
-            cuckoo.insertEntry(table,i,data_size,DEFAULT_INITIAL_CAPACITY);
+        long[] table_cuckoo = new long[DEFAULT_INITIAL_CAPACITY*2];
+        for (int i = 0; i < ELEMENT_SIZE; i++) {
+            cuckoo.insertEntry(table_cuckoo,table[i],data_size,DEFAULT_INITIAL_CAPACITY);
         }
-        return table;
+        return table_cuckoo;
     }
-
-
 
     static void insertEntry(long[] table,long key,int datasize,int DEFAULT_INITIAL_CAPACITY) {
         int count = 0;
@@ -53,10 +51,5 @@ public class cuckoo {
     public ArrayList<Integer> Get_Cuckoo_Stash(){
         return cuckoo_Stash;
     }
-
-
-
-
-
 }
 
