@@ -5,7 +5,7 @@ This repo show the functions of cuckoo hash with a stash.
 
 ## Functions
 
-1. main: 主函数，选用一个数据库并调用cuckoo类构造cuckoo_table，最后对cuckoo_table进行测试查找;
+1. main: 主函数，选用一个数据库并调用cuckoo类构造cuckoo_EMM，最后对cuckoo_table进行测试查找;
 2. cuckoo: cuckoo hash with a stash 的实现;
 3. util/Hash: 实现 cuckoo hash 中用到的哈希函数.
 
